@@ -49,3 +49,4 @@ urllib3==2.3.0
 virtualenv==20.28.1
 watchdog==6.0.0
 seaborn==0.13.2
+matplotlib==3.10.0
