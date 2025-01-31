@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 
 # Charger les données
-data = pd.read_csv("your_dataset.csv")
+data = pd.read_excel("Iris.xlsx")
 
 # Charger le modèle
 model = LinearRegression()
