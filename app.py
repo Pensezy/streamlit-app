@@ -2,7 +2,7 @@
 
 import streamlit as st
 import pandas as pd
-from sklearn.linear_model import LinearRegression
+#from sklearn.linear_model import LinearRegression
 
 # Charger les données
 data = pd.read_excel("Iris.xlsx")
