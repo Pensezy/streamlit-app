@@ -17,12 +17,7 @@ st.title("Interface utilisateur avec Streamlit")
 # Introduction
 st.write("Bienvenue dans cette application interactive ! Utilisez les éléments ci-dessous pour explorer les données.")
 
-# Chargement des données (exemple avec un fichier CSV)
-uploaded_file = st.file_uploader("Choisir un fichier CSV", type="csv")
-if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
-
-    # Affichage des données brutes (facultatif)
+ # Affichage des données brutes (facultatif)
     if st.checkbox("Afficher les données brutes"):
         st.write(df)
 
@@ -49,5 +44,12 @@ if uploaded_file is not None:
     else:
         st.write("Veuillez sélectionner au moins une colonne.")
 
+"""
+# Chargement des données (exemple avec un fichier CSV)
+uploaded_file = st.file_uploader("Choisir un fichier CSV", type="csv")
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
+
 else:
     st.write("Veuillez télécharger un fichier CSV pour commencer.")
+"""
