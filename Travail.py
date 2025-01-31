@@ -43,13 +43,3 @@ if selected_cols:
 
 else:
     st.write("Veuillez sélectionner au moins une colonne.")
-
-"""
-# Chargement des données (exemple avec un fichier CSV)
-uploaded_file = st.file_uploader("Choisir un fichier CSV", type="csv")
-if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
-
-else:
-    st.write("Veuillez télécharger un fichier CSV pour commencer.")
-"""
