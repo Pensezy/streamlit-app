@@ -2,12 +2,10 @@
 import streamlit as st
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 #chargement de la base de donnée
-#data = pd.read_excel('Iris.xlsx')
 df=pd.read_excel("Iris.xlsx")
-#df=pd.read_csv('Iris.csv')
 
 # Titre de l'application
 st.title("Interface utilisateur Pensezy")
@@ -36,8 +34,6 @@ if selected_cols:
     st.subheader("Statistiques descriptives")
     st.write(df[selected_cols].describe())
 
-    # Possibilité d'ajouter d'autres types de graphiques (barres, dispersion, etc.)
-    # et d'autres analyses statistiques selon vos besoins.
 
 else:
     st.write("Veuillez sélectionner au moins une colonne.")
