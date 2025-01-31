@@ -10,7 +10,7 @@ df=pd.read_csv('Iris.csv')
 
 
 #Affichage des premières lignes du jeu de données
-print(df.head())
+st.text(df.head())
 
 #Statistiques descriptives 
-print(df.describe())
+st.text(df.describe())
