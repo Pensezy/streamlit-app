@@ -1,4 +1,4 @@
-%%streamlit run
+#%%streamlit run
 
 import streamlit as st
 import pandas as pd
