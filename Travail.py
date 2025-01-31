@@ -12,7 +12,7 @@ st.text(df.head())
 
 
 # Titre de l'application
-st.title("Interface utilisateur avec Streamlit")
+st.title("Interface utilisateur Pensezy")
 
 # Introduction
 st.write("Bienvenue dans cette application interactive ! Utilisez les éléments ci-dessous pour explorer les données.")
