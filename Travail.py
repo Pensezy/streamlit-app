@@ -8,4 +8,9 @@ import matplotlib.pyplot as plt
 #df=pd.read_excel('Iris.xlsx')
 df=pd.read_csv('Iris.csv')
 
-print("Bonjour gars")
+
+#Affichage des premières lignes du jeu de données
+print(df.head())
+
+#Statistiques descriptives 
+print(df.describe())
