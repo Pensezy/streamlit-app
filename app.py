@@ -4,11 +4,14 @@ import streamlit as st
 import pandas as pd
 #from sklearn.linear_model import LinearRegression
 
-# Charger les données
-data = pd.read_excel("Iris.xlsx")
+
 
 print("Bonjour pensezy")
 """
+
+# Charger les données
+data = pd.read_excel("Iris.xlsx")
+
 # Charger le modèle
 model = LinearRegression()
 model.fit(data[['feature1', 'feature2']], data['target'])
