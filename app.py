@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 sl.title("Pensezy Corporation")
 
 #Menu de navigation 
-sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques", "À propos"])
+menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques", "À propos"])
 
 #Page d'accueil 
 if menu=="Accueil": 
