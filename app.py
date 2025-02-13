@@ -24,7 +24,7 @@ elif menu == "Données":
 elif menu=="Graphiques":
   sl.write("Voici un graphque :")
   fig,ax=plt.subplots()
-  as.plot([1, 2, 3], [2, 4, 6])
+  ax.plot([1, 2, 3], [2, 4, 6])
   sl.pyplot(fig)
 
 #Page à propos
