@@ -36,4 +36,4 @@ elif menu =="À propos":
 #sl.sidebar.download_button("Télécharger les données", data.to_excel(index=false), "données.excel")
 
 #Bouton pour afficher les crédits 
-sl.sidebar.bouton("Crédits", on_click=lambda:st.sidebar.write("Cette appliction utilise Streamlit et Pandas"))
+#sl.sidebar.bouton("Crédits", on_click=lambda:st.sidebar.write("Cette appliction utilise Streamlit et Pandas"))
