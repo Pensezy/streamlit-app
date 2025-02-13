@@ -33,7 +33,7 @@ elif menu =="À propos":
   sl.write("Pour plus d'informations, veuillez nous contacter au numéro : +237 6 95 91 18 71")
 
 #Bouton pour télécharger les données
-sl.sidebar.download_button("Télécharger les données", data.to_csv(index=false), "données.csv")
+#sl.sidebar.download_button("Télécharger les données", data.to_excel(index=false), "données.excel")
 
 #Bouton pour afficher les crédits 
 sl.sidebar.bouton("Crédits", on_click=lambda:st.sidebar.write("Cette appliction utilise Streamlit et Pandas"))
