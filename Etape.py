@@ -89,3 +89,33 @@ plt.imshow(conf_matrix,interpolation='nearest')
 plt.title("Matrice de confusion")
 plt.colorbar()
 plt.show()
+
+
+#Etape 6 question 2.
+#Importation 
+import sklearn.preprocessing as sp
+import sklearn.linear_model as sl
+
+#Normalisation Min-Max
+scaler_minmax=sp.MinMaxScaler()
+X_train_minmax = scaler_minmax.fit_transform(X_train)
+X_test_minmax = scaler_minmax.transform(X_test)
+
+#Normalisation Z-score
+scaler_zscore=sp.StandardScaler()
+X_train_zscore=scaler_zscore.fit_transform(X_train)
+X_test_zscore=scaler_zscore.transform(X_test)
+
+# Entraîner et évaluer le modèle avec les données normalisées
+model = sl.LogisticRegression()
+
+model.fit(X_train_minmax, y_train)
+y_pred_minmax = model.predict(X_test_minmax)
+accuracy_minmax = sm.accuracy_score(y_test, y_pred_minmax)
+
+model.fit(X_train_zscore, y_train)
+y_pred_zscore = model.predict(X_test_zscore)
+accuracy_zscore = sm.accuracy_score(y_test, y_pred_zscore)
+
+print(f"Précision avec normalisation Min-Max: {accuracy_minmax}")
+print(f"Précision avec normalisation Z-score: {accuracy_zscore}")
