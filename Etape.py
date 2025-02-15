@@ -170,3 +170,55 @@ print("Meilleur score (recherche en grille):", grid_search.best_score_)
 
 print("Meilleurs paramètres (recherche aléatoire):", random_search.best_params_)
 print("Meilleur score (recherche aléatoire):", random_search.best_score_)
+
+
+#Etape 7 question 2: Entrainons les autres modèle et comparons
+
+#Importation 
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
+from sklearn.neural_network import MLPClassifier
+
+#On a déjà normaliser les données plus haut
+
+#Entrainons et évaluons les différents modèles 
+# Régression logistique
+lr = sl.LogisticRegression()
+lr.fit(X_train_scaled, y_train)
+y_pred_lr = lr.predict(X_test_scaled)
+
+# Arbre de décision
+dt = DecisionTreeClassifier()
+dt.fit(X_train_scaled, y_train)
+y_pred_dt = dt.predict(X_test_scaled)
+
+# Naive Bayes
+nb = GaussianNB()
+nb.fit(X_train_scaled, y_train)
+y_pred_nb = nb.predict(X_test_scaled)
+
+# SVM
+svm = SVC()
+svm.fit(X_train_scaled, y_train)
+y_pred_svm = svm.predict(X_test_scaled)
+
+# Réseau de neurones
+ann = MLPClassifier(hidden_layer_sizes=(100,), max_iter=500) # Ajustez les paramètres du réseau
+ann.fit(X_train_scaled, y_train)
+y_pred_ann = ann.predict(X_test_scaled)
+
+# Affichons les rapports de classification et les matrices de confusion pour chaque modèle
+models = {
+    "KNN": y_pred,#Les prédications de mon modèle en KNN
+    "Régression Logistique": y_pred_lr,
+    "Arbre de Décision": y_pred_dt,
+    "Naive Bayes": y_pred_nb,
+    "SVM": y_pred_svm,
+    "Réseau de Neurones": y_pred_ann
+}
+
+for name, y_pred in models.items():
+    print(f"----- {name} -----")
+    print(sm.classification_report(y_test, y_pred))
+    print(sm.confusion_matrix(y_test, y_pred))
