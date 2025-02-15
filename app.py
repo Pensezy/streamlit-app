@@ -36,7 +36,7 @@ elif menu=="Graphiques":
   if selected_cols:
       # Graphique interactif (exemple avec un histogramme)
       sl.subheader("Visualisation des données")
-      col_to_plot = st.selectbox("Choisir une colonne pour l'histogramme", selected_cols)
+      col_to_plot = sl.selectbox("Choisir une colonne pour l'histogramme", selected_cols)
       fig, ax = plt.subplots()
       sns.histplot(df[col_to_plot], kde=True, ax=ax)
       sl.pyplot(fig)
