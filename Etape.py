@@ -119,3 +119,54 @@ accuracy_zscore = sm.accuracy_score(y_test, y_pred_zscore)
 
 print(f"Précision avec normalisation Min-Max: {accuracy_minmax}")
 print(f"Précision avec normalisation Z-score: {accuracy_zscore}")
+
+
+#etape 7
+#1 Optimisation des hypes-paramètres
+
+#a.
+# Normaliser les données (important pour KNN)
+scaler = sp.StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+#Définissons la grille d'hyperparamètres
+param_grid = {
+    'n_neighbors': range(1, 31),  # Tester de 1 à 30 voisins
+    'metric': ['euclidean', 'manhattan', 'cosine', 'minkowski'],  # Tester différentes distances
+    'p': [1, 2] # Pour la distance de Minkowski (p=1 pour Manhattan, p=2 pour Euclidienne)
+}
+
+#Trouvons les meilleurs hyperparamètres
+grid_search = sms.GridSearchCV(knn, param_grid, cv=5, scoring='accuracy')  # cv pour la validation croisée, scoring pour la métrique d'évaluation
+grid_search.fit(X_train_scaled, y_train)
+
+# Afficher les meilleurs hyperparamètres et le score correspondant
+print("Meilleurs hyperparamètres:", grid_search.best_params_)
+print("Meilleur score:", grid_search.best_score_)
+
+#On évalue le modèle 
+best_knn = grid_search.best_estimator_
+y_pred = best_knn.predict(X_test_scaled)
+
+# Afficher le rapport de classification et la matrice de confusion
+print(sm.classification_report(y_test, y_pred))
+print(sm.confusion_matrix(y_test, y_pred))
+
+#b.
+# Recherche aléatoire
+param_distributions = {  # Utilisez param_distributions pour RandomizedSearchCV
+    'n_neighbors': range(1, 31),
+    'metric': ['euclidean', 'manhattan', 'cosine', 'minkowski'],
+    'p': [1, 2]
+}
+
+random_search = sms.RandomizedSearchCV(knn, param_distributions, n_iter=10, cv=5, scoring='accuracy')  # n_iter pour le nombre d'itérations
+random_search.fit(X_train_scaled, y_train)
+
+# Afficher les résultats
+print("Meilleurs paramètres (recherche en grille):", grid_search.best_params_)
+print("Meilleur score (recherche en grille):", grid_search.best_score_)
+
+print("Meilleurs paramètres (recherche aléatoire):", random_search.best_params_)
+print("Meilleur score (recherche aléatoire):", random_search.best_score_)
