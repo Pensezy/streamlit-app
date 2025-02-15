@@ -1,6 +1,7 @@
 #Importation de librairie
 import streamlit as sl
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 import pickle as pk
 
