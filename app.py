@@ -48,17 +48,10 @@ elif menu=="Graphiques":
 
 #Page de prédictions
 elif menu=="Prédictions":
-  col1, col2 = sl.columns(2)
-  feature1 = col1.selectbox("Feature 1", df.columns)
-  feature2 = col2.selectbox("Feature 2", df.columns)
+  colonne1, colonne2 = sl.columns(2)
+  feature1 = colonne1.selectbox("Feature 1", df.columns)
+  feature2 = colonne2.selectbox("Feature 2", df.columns)
   if sl.button("Faire des prédictions"):
-    predictions = modele.predict(df[[feature1, feature2]])
-
     # Affichage des résultats
     sl.write("Prédictions :")
-    sl.write(predictions)
-
-    # Graphique
-    fig, ax = plt.subplots()
-    ax.scatter(df[feature1], df[feature2], c=predictions)
-    sl.pyplot(fig)
+   
