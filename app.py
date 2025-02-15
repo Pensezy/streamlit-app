@@ -24,22 +24,22 @@ if menu=="Accueil":
 #Page données
 elif menu == "Données":
   sl.write("Voici les données : ")
-  st.write(df)
+  sl.write(df)
 
 #Page des graphiques
 elif menu=="Graphiques":
-  st.subheader("Sélection des colonnes")
+  sl.subheader("Sélection des colonnes")
   #Listons les colonnes
   numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
-  selected_cols = st.multiselect("Choisir les colonnes à analyser", numeric_cols)
+  selected_cols = sl.multiselect("Choisir les colonnes à analyser", numeric_cols)
   
   if selected_cols:
       # Graphique interactif (exemple avec un histogramme)
-      st.subheader("Visualisation des données")
+      sl.subheader("Visualisation des données")
       col_to_plot = st.selectbox("Choisir une colonne pour l'histogramme", selected_cols)
       fig, ax = plt.subplots()
       sns.histplot(df[col_to_plot], kde=True, ax=ax)
-      st.pyplot(fig)
+      sl.pyplot(fig)
 
 #Page de prédiction
 elif menu =="Prédictions":
@@ -50,15 +50,15 @@ elif menu =="Prédictions":
   choix2=colonne2.selectbox("Choix 2",df.columns)
 
   #Prédictions
-  if st.button("Faire des prédictions"):
+  if sl.button("Faire des prédictions"):
     predictions = modele_iris.predict(data[[choix1, choix2]])
   
     # Affichage des résultats
-    st.write("Prédictions :")
-    st.write(predictions)
+    sl.write("Prédictions :")
+    sl.write(predictions)
   
     # Graphique
     fig, ax = plt.subplots()
     ax.scatter(df[choix1], df[choix2], c=predictions)
-    st.pyplot(fig)
+    sl.pyplot(fig)
 
