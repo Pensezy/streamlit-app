@@ -4,6 +4,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pickle as pk
+from sklearn.linear_model import LogisticRegression
 
 #Chargement du modèle 
 with open('modele_iris.pkl', 'rb') as fichier:
