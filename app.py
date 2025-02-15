@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import pickle as pk
 
 #Chargement du modèle
-with open('mon_modele.pkl', 'rb') as fichier:
+with open('modele_iris.pkl', 'rb') as fichier:
   mon_modele=pickle.load(fichier)
 
 #Titre de mon application 
