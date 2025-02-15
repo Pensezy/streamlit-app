@@ -52,7 +52,7 @@ elif menu =="Prédictions":
 
   #Prédictions
   if sl.button("Faire des prédictions"):
-    predictions = modele_iris.predict(data[[choix1, choix2]])
+    predictions = modele_iris.predict(df[[choix1, choix2]])
   
     # Affichage des résultats
     sl.write("Prédictions :")
