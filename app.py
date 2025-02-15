@@ -22,7 +22,7 @@ menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques", "Prédic
 #Page d'accueil 
 if menu=="Accueil": 
   sl.write("Cette application permet de visualiser et d'analyser des données. Les données utilisées ici sont célèbres dans le domaine des data sciences. Elles ont été collectées par Edgar Anderson [1]. Ce sont les mesures en centimètres des variables suivantes : longueur du sépale (Sepal.Length), largeur du sépale (Sepal.Width), longueur du pétale (Petal.Length) et largeur du pétale (Petal.Width) pour trois espèces d’iris : setosa, versicolor et virginica.")
-  sl.write(feature_names)
+ 
 #Page données
 elif menu == "Données":
   sl.write("Voici les données : ")
@@ -46,14 +46,20 @@ elif menu=="Graphiques":
 #Page de prédiction
 elif menu =="Prédictions":
   sl.write("Voici ou on fait des prédictions.")
+  
+  
+  coefficients = pd.Series(modele.coef_[0], index=feature_names)
+  sl.write(coefficients)
   #Listons les colonnes
   colonne1, colonne2=sl.columns(2)
-  feature1=colonne1.selectbox("Choix 1",df.columns)
-  feature2=colonne2.selectbox("Choix 2",df.columns)
-
+  choix1=colonne1.selectbox("Choix 1",df.columns)
+  choix2=colonne2.selectbox("Choix 2",df.columns)
+  feature_names = [choix1, choix2]
+  sl.write(feature_names)
+  
   #Prédictions
   if sl.button("Faire des prédictions"):
-    predictions = modele.predict(df[[feature1, feature2]])
+    predictions = modele.predict(df[feature_names])
   
     # Affichage des résultats
     sl.write("Prédictions :")
