@@ -50,3 +50,14 @@ elif menu=="Graphiques":
   col1, col2 = st.columns(2)
   feature1 = col1.selectbox("Feature 1", data.columns)
   feature2 = col2.selectbox("Feature 2", data.columns)
+  if st.button("Faire des prédictions"):
+    predictions = modele.predict(df[[feature1, feature2]])
+
+    # Affichage des résultats
+    sl.write("Prédictions :")
+    sl.write(predictions)
+
+    # Graphique
+    fig, ax = plt.subplots()
+    ax.scatter(df[feature1], df[feature2], c=predictions)
+    st.pyplot(fig)
