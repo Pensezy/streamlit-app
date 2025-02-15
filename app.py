@@ -48,8 +48,8 @@ elif menu=="Graphiques":
 
 #Page de prédictions
   col1, col2 = st.columns(2)
-  feature1 = col1.selectbox("Feature 1", data.columns)
-  feature2 = col2.selectbox("Feature 2", data.columns)
+  feature1 = col1.selectbox("Feature 1", df.columns)
+  feature2 = col2.selectbox("Feature 2", df.columns)
   if sl.button("Faire des prédictions"):
     predictions = modele.predict(df[[feature1, feature2]])
 
