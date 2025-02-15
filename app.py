@@ -47,7 +47,12 @@ elif menu=="Graphiques":
 elif menu =="Prédictions":
   sl.write("Voici ou on fait des prédictions.")
   
- 
+   predictions = modele.predict(df)
+  
+    # Affichage des résultats
+    sl.write("Prédictions :")
+    sl.write(predictions)
+ """
   #Listons les colonnes
   colonne1, colonne2=sl.columns(2)
   choix1=colonne1.selectbox("Choix 1",df.columns)
@@ -71,4 +76,5 @@ elif menu =="Prédictions":
     fig, ax = plt.subplots()
     ax.scatter(df[choix1], df[choix2], c=predictions)
     sl.pyplot(fig)
+  """
 
