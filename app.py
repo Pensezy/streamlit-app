@@ -2,6 +2,7 @@
 import streamlit as sl
 import pandas as pd
 import matplotlib.pyplot as plt
+import pickle as pk
 
 #Titre de mon application 
 sl.title("Pensezy Corporation")
