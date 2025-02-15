@@ -43,5 +43,5 @@ elif menu=="Graphiques":
       sns.histplot(df[col_to_plot], kde=True, ax=ax)
       sl.pyplot(fig)
       # Statistiques descriptives
-      st.subheader("Statistiques descriptives")
-      st.write(df[selected_cols].describe())
+      sl.subheader("Statistiques descriptives")
+      sl.write(df[selected_cols].describe())
