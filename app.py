@@ -47,7 +47,7 @@ elif menu=="Graphiques":
       sl.write(df[selected_cols].describe())
 
 #Page de prédictions
-  col1, col2 = st.columns(2)
+  col1, col2 = sl.columns(2)
   feature1 = col1.selectbox("Feature 1", df.columns)
   feature2 = col2.selectbox("Feature 2", df.columns)
   if sl.button("Faire des prédictions"):
