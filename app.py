@@ -17,7 +17,7 @@ df=pd.read_excel("Iris.xlsx")
 sl.title("Pensezy Corporation")
 
 #Menu de navigation 
-menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques")
+menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques"])
 
 #Page d'accueil 
 if menu=="Accueil": 
