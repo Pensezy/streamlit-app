@@ -46,13 +46,15 @@ elif menu=="Graphiques":
 #Page de prédiction
 elif menu =="Prédictions":
   sl.write("Voici ou on fait des prédictions.")
+  print(df.dtypes)
+"""
   predictions = modele.predict(df)
 
    # Affichage des résultats
   sl.write("Prédictions :")
   sl.write(predictions)
   
-"""
+
   #Listons les colonnes
   colonne1, colonne2=sl.columns(2)
   choix1=colonne1.selectbox("Choix 1",df.columns)
