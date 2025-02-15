@@ -4,15 +4,18 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import pickle as pk
 
-#Chargement du modèle
+#Chargement du modèle 
 with open('modele_iris.pkl', 'rb') as fichier:
-  mon_modele=pk.load(fichier)
+  modele_iris=pk.load(fichier)
+  
+#Chargement des données
+df=pd.read_excel("Iris.xlsx")
 
 #Titre de mon application 
 sl.title("Pensezy Corporation")
 
 #Menu de navigation 
-menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques", "À propos"])
+menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques", "Prédictions"])
 
 #Page d'accueil 
 if menu=="Accueil": 
@@ -21,24 +24,41 @@ if menu=="Accueil":
 #Page données
 elif menu == "Données":
   sl.write("Voici les données : ")
-  data=pd.DataFrame({"Nom": ["John", "Mary", "David"], "Age": [25, 31, 42]})
-  #data=pd.read_excel("Iris.xlsx")
-  sl.write(data)
+  st.write(df)
 
 #Page des graphiques
 elif menu=="Graphiques":
-  sl.write("Voici un graphque :")
-  fig,ax=plt.subplots()
-  ax.plot([1, 2, 3], [2, 4, 6])
-  sl.pyplot(fig)
+  st.subheader("Sélection des colonnes")
+  #Listons les colonnes
+  numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
+  selected_cols = st.multiselect("Choisir les colonnes à analyser", numeric_cols)
+  
+  if selected_cols:
+      # Graphique interactif (exemple avec un histogramme)
+      st.subheader("Visualisation des données")
+      col_to_plot = st.selectbox("Choisir une colonne pour l'histogramme", selected_cols)
+      fig, ax = plt.subplots()
+      sns.histplot(df[col_to_plot], kde=True, ax=ax)
+      st.pyplot(fig)
 
-#Page à propos
-elif menu =="À propos":
-  sl.write("Cette application a été créée par Pensezy Corporation.")
-  sl.write("Pour plus d'informations, veuillez nous contacter au numéro : +237 6 95 91 18 71")
+#Page de prédiction
+elif menu =="Prédictions":
+  sl.write("Voici ou on fait des prédictions.")
+  #Listons les colonnes
+  colonne1, colonne2=sl.columns(2)
+  choix1=colonne1.selectbox("Choix 1",df.columns)
+  choix2=colonne2.selectbox("Choix 2",df.columns)
 
-#Bouton pour télécharger les données
-#sl.sidebar.download_button("Télécharger les données", data.to_excel(index=false), "données.excel")
+  #Prédictions
+  if st.button("Faire des prédictions"):
+    predictions = modele_iris.predict(data[[choix1, choix2]])
+  
+    # Affichage des résultats
+    st.write("Prédictions :")
+    st.write(predictions)
+  
+    # Graphique
+    fig, ax = plt.subplots()
+    ax.scatter(df[choix1], df[choix2], c=predictions)
+    st.pyplot(fig)
 
-#Bouton pour afficher les crédits 
-#sl.sidebar.bouton("Crédits", on_click=lambda:st.sidebar.write("Cette appliction utilise Streamlit et Pandas"))
