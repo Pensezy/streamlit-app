@@ -6,7 +6,7 @@ import pickle as pk
 
 #Chargement du modèle
 with open('modele_iris.pkl', 'rb') as fichier:
-  mon_modele=pickle.load(fichier)
+  mon_modele=pk.load(fichier)
 
 #Titre de mon application 
 sl.title("Pensezy Corporation")
