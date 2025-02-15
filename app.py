@@ -17,7 +17,7 @@ df=pd.read_excel("Iris.xlsx")
 sl.title("Pensezy Corporation")
 
 #Menu de navigation 
-menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques"])
+menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques", "Prédictions"])
 
 #Page d'accueil 
 if menu=="Accueil": 
@@ -45,3 +45,8 @@ elif menu=="Graphiques":
       # Statistiques descriptives
       sl.subheader("Statistiques descriptives")
       sl.write(df[selected_cols].describe())
+
+#Page de prédictions
+  col1, col2 = st.columns(2)
+    feature1 = col1.selectbox("Feature 1", data.columns)
+    feature2 = col2.selectbox("Feature 2", data.columns)
