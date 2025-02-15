@@ -16,9 +16,7 @@ menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques", "À prop
 
 #Page d'accueil 
 if menu=="Accueil": 
-  sl.write("Cette application permet de visualiser et d'analyser des données. Les données utilisées ici sont célèbres dans le domaine des data sciences. Elles ont été collectées par Edgar Anderson [1]. Ce sont les mesures en centimètres des variables suivantes : longueur du sépale
-(Sepal.Length), largeur du sépale (Sepal.Width), longueur du pétale (Petal.Length) et largeur du pétale
-(Petal.Width) pour trois espèces d’iris : setosa, versicolor et virginica.")
+  sl.write("Cette application permet de visualiser et d'analyser des données. Les données utilisées ici sont célèbres dans le domaine des data sciences. Elles ont été collectées par Edgar Anderson [1]. Ce sont les mesures en centimètres des variables suivantes : longueur du sépale (Sepal.Length), largeur du sépale (Sepal.Width), longueur du pétale (Petal.Length) et largeur du pétale (Petal.Width) pour trois espèces d’iris : setosa, versicolor et virginica.")
 
 #Page données
 elif menu == "Données":
