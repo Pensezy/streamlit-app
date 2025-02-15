@@ -27,3 +27,19 @@ from sklearn.preprocessing import StandardScaler
 scaler=StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test=scaler.transform(X_test)
+
+
+#Etapes 4. Créer et entraîner un modèle de classification (K-Nearest Neighbors)
+
+#1.importation des bibliothèques
+from sklearn.neighbors import KNeighborsClassifier
+import sklearn.metrics as sm
+#from sklearn.metrics import confusion_matrix, accuracy_score
+#from sklearn.metrics 
+
+#Créer le modèle KNN
+knn=KNeighborsClassifier(n_neighbors=5)#3
+
+#2.
+#Entrainons le modèle 
+knn.fit(X_train, y_train)
