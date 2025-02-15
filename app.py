@@ -7,7 +7,7 @@ import pickle as pk
 
 #Chargement du modèle 
 with open('modele_iris.pkl', 'rb') as fichier:
-  modele_iris=pk.load(fichier)
+  modele=pk.load(fichier)
   
 #Chargement des données
 df=pd.read_excel("Iris.xlsx")
@@ -52,7 +52,7 @@ elif menu =="Prédictions":
 
   #Prédictions
   if sl.button("Faire des prédictions"):
-    predictions = modele_iris.predict(df[[choix1, choix2]])
+    predictions = modele.predict(df[[choix1, choix2]])
   
     # Affichage des résultats
     sl.write("Prédictions :")
