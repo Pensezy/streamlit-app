@@ -47,15 +47,17 @@ elif menu=="Graphiques":
 elif menu =="Prédictions":
   sl.write("Voici ou on fait des prédictions.")
   
-  
-  coefficients = pd.Series(modele.coef_[0], index=feature_names)
-  sl.write(coefficients)
+ 
   #Listons les colonnes
   colonne1, colonne2=sl.columns(2)
   choix1=colonne1.selectbox("Choix 1",df.columns)
   choix2=colonne2.selectbox("Choix 2",df.columns)
+  
   feature_names = [choix1, choix2]
   sl.write(feature_names)
+
+  coefficients = pd.Series(modele.coef_[0], index=feature_names)
+  sl.write(coefficients)
   
   #Prédictions
   if sl.button("Faire des prédictions"):
