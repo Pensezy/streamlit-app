@@ -48,12 +48,12 @@ elif menu =="Prédictions":
   sl.write("Voici ou on fait des prédictions.")
   #Listons les colonnes
   colonne1, colonne2=sl.columns(2)
-  choix1=colonne1.selectbox("Choix 1",df.columns)
-  choix2=colonne2.selectbox("Choix 2",df.columns)
+  feature1=colonne1.selectbox("Choix 1",df.columns)
+  feature2=colonne2.selectbox("Choix 2",df.columns)
 
   #Prédictions
   if sl.button("Faire des prédictions"):
-    predictions = modele.predict(df[[choix1, choix2]])
+    predictions = modele.predict(df[[feature1, feature2]])
   
     # Affichage des résultats
     sl.write("Prédictions :")
