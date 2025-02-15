@@ -17,7 +17,7 @@ df=pd.read_excel("Iris.xlsx")
 sl.title("Pensezy Corporation")
 
 #Menu de navigation 
-menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques", "Prédictions"])
+menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques"])
 
 #Page d'accueil 
 if menu=="Accueil": 
@@ -42,41 +42,3 @@ elif menu=="Graphiques":
       fig, ax = plt.subplots()
       sns.histplot(df[col_to_plot], kde=True, ax=ax)
       sl.pyplot(fig)
-
-#Page de prédiction
-elif menu =="Prédictions":
-  sl.write("Voici ou on fait des prédictions.")
-  print(df.dtypes)
-"""
-  predictions = modele.predict(df)
-
-   # Affichage des résultats
-  sl.write("Prédictions :")
-  sl.write(predictions)
-  
-
-  #Listons les colonnes
-  colonne1, colonne2=sl.columns(2)
-  choix1=colonne1.selectbox("Choix 1",df.columns)
-  choix2=colonne2.selectbox("Choix 2",df.columns)
-  
-  feature_names = [choix1, choix2]
-  sl.write(feature_names)
-
-  coefficients = pd.Series(modele.coef_[0], index=feature_names)
-  sl.write(coefficients)
-  
-  #Prédictions
-  if sl.button("Faire des prédictions"):
-    predictions = modele.predict(df[feature_names])
-  
-    # Affichage des résultats
-    sl.write("Prédictions :")
-    sl.write(predictions)
-  
-    # Graphique
-    fig, ax = plt.subplots()
-    ax.scatter(df[choix1], df[choix2], c=predictions)
-    sl.pyplot(fig)
-"""
-
