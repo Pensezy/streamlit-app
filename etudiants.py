@@ -8,13 +8,10 @@ import seaborn as sns
 # Charger le modèle et les encodeurs
 with open('modele_entraine.pkl', 'rb') as fichier:
   model = joblib.load(fichier)
-  
-  
-#Chargement des données
-df = pd.read_excel('MathE dataset.xlsx')
-
 label = joblib.load("label.pkl")
 
+#Chargement des données
+df = pd.read_excel('MathE dataset.xlsx')
 
 # Titre de l'application
 st.title("Prédiction de Réponse d'un Étudiant par Pensezy")
@@ -35,7 +32,6 @@ elif menu == "Données":
 elif menu=="Graphiques":
   st.subheader("Sélection des colonnes")
   #Listons les colonnes
-  #numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
   all_cols = df.columns.tolist()
   selected_cols = st.multiselect("Choisir les colonnes à analyser", all_cols)
   
