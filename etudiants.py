@@ -10,9 +10,9 @@ from sklearn.ensemble import RandomForestClassifier
 # Charger le modèle pour vérifier qu'il fonctionne
 try:
     model = joblib.load("random_forest_model.pkl")
-    print("✅ Modèle chargé avec succès !")
+    st.write("✅ Modèle chargé avec succès !")
 except Exception as e:
-    print("❌ Erreur lors du chargement du modèle :", e)
+    st.write("❌ Erreur lors du chargement du modèle :", e)
 
 
 # Titre de l'application
