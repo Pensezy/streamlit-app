@@ -3,7 +3,7 @@ import joblib #charger le modèle
 import pandas as pd #charger le jeu de donnée
 import streamlit as st #coder l'application 
 import matplotlib.pyplot as plt #création de visualistion graphique
-import seaborn as sns #concevoir des histogramme
+import seaborn as sns #concevoir des graphiques
 
 # Charger le modèle et les encodeurs
 with open('modele_entraine.pkl', 'rb') as fichier:
