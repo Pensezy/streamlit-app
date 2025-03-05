@@ -65,11 +65,11 @@ elif menu=="Prédiction":
     
     # Convertir les entrées utilisateur en valeurs numériques
     input_data = pd.DataFrame({
-        "Student Country": [label["Student Country"].transform([student_country])[0]],
-        "question ID": [question_id],
-        "question Level": [label["question Level"].transform([question_level])[0]],
-        "Topic": [label["Topic"].transform([topic])[0]],
-        "Subtopic": [label["Subtopic"].transform([subtopic])[0]],
+    "Student Country": [label["Student Country"].transform([student_country])[0]],
+    "Question ID": [question_id],
+    "Question Level": [label["Question Level"].transform([question_level])[0]],
+    "Topic": [label["Topic"].transform([topic])[0]],
+    "Subtopic": [label["Subtopic"].transform([subtopic])[0]],
     })
     
     # Bouton de prédiction
