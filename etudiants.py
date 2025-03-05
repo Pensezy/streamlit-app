@@ -3,17 +3,18 @@ import streamlit as st
 import pandas as pd
 import joblib
 import seaborn as sns
-import pickle as pk
+import joblib
 from sklearn.preprocessing import LabelEncoder
 
 # Charger le modèle et les encodeurs
 with open('modele_entraine.pkl', 'rb') as fichier:
-  modele=pk.load(fichier)
+  model = joblib.load(fichier)
   
   
 #Chargement des données
 df = pd.read_excel('MathE dataset.xlsx')
-label=pk.load('label.pkl')
+
+label = joblib.load("label.pkl")
 
 
 # Titre de l'application
