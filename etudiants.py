@@ -1,11 +1,9 @@
 #Importation de librairie
-import streamlit as st
+import joblib
 import pandas as pd
+import streamlit as st
 import matplotlib.pyplot as plt
-import joblib
 import seaborn as sns
-import joblib
-from sklearn.preprocessing import LabelEncoder
 
 # Charger le modèle et les encodeurs
 with open('modele_entraine.pkl', 'rb') as fichier:
