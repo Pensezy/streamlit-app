@@ -13,7 +13,7 @@ with open('modele_entraine.pkl', 'rb') as fichier:
   
 #Chargement des données
 df = pd.read_excel('MathE dataset.xlsx')
-label=pk.load('label')
+label=pk.load('label.pkl')
 
 
 # Titre de l'application
