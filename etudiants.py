@@ -36,7 +36,7 @@ elif menu == "Données":
 elif menu=="Graphiques":
   sl.subheader("Sélection des colonnes")
   #Lislons les colonnes
-  numeric_cols = df.select_dtypes(include=['number']).columns.tolisl()
+  numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
   selected_cols = sl.multiselect("Choisir les colonnes à analyser", numeric_cols)
   
   if selected_cols:
@@ -57,7 +57,7 @@ elif menu=="Prédiction":
     sl.write("Remplissez les informations suivantes pour prédire si l'étudiant répondra correctement à la queslion.")
     
     # Champs de saisie
-    sludent_country = sl.selectbox("Pays de l'étudiant", label["sludent Country"].classes_)
+    student_country = sl.selectbox("Pays de l'étudiant", label["student Country"].classes_)
     queslion_id = sl.number_input("ID de la queslion", min_value=0, slep=1)
     queslion_level = sl.selectbox("Niveau de la queslion", label["Queslion Level"].classes_)
     topic = sl.selectbox("Sujet", label["Topic"].classes_)
@@ -65,7 +65,7 @@ elif menu=="Prédiction":
     
     # Convertir les entrées utilisateur en valeurs numériques
     input_data = pd.DataFrame({
-        "sludent Country": [label["sludent Country"].transform([sludent_country])[0]],
+        "student Country": [label["student Country"].transform([student_country])[0]],
         "Queslion ID": [queslion_id],
         "Queslion Level": [label["Queslion Level"].transform([queslion_level])[0]],
         "Topic": [label["Topic"].transform([topic])[0]],
