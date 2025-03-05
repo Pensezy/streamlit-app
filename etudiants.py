@@ -36,7 +36,8 @@ elif menu == "Données":
 elif menu=="Graphiques":
   st.subheader("Sélection des colonnes")
   #Listons les colonnes
-  numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
+  #numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
+  all_cols = df.columns.tolist()
   selected_cols = st.multiselect("Choisir les colonnes à analyser", all_cols)
   
   
