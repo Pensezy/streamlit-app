@@ -37,7 +37,8 @@ elif menu=="Graphiques":
   st.subheader("Sélection des colonnes")
   #Listons les colonnes
   numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
-  selected_cols = st.multiselect("Choisir les colonnes à analyser", numeric_cols)
+  selected_cols = st.multiselect("Choisir les colonnes à analyser", all_cols)
+  
   
   if selected_cols:
       # Graphique interactif (exemple avec un histogramme)
