@@ -57,7 +57,7 @@ elif menu=="Prédiction":
     question_id = st.number_input("ID de la question", min_value=0, step=1)
     question_level = st.selectbox("Niveau de la question", label["Question Level"].classes_)
     topic = st.selectbox("Sujet", label["Topic"].classes_)
-    #subtopic = st.selectbox("Sous-sujet", label["Subtopic"].classes_)
+    subtopic = st.selectbox("Sous-sujet", label["Subtopic"].classes_)
     
     # Convertir les entrées utilisateur en valeurs numériques
     input_data = pd.DataFrame({
@@ -65,7 +65,7 @@ elif menu=="Prédiction":
     "Question ID": [question_id],
     "Question Level": [label["Question Level"].transform([question_level])[0]],
     "Topic": [label["Topic"].transform([topic])[0]],
-    #"Subtopic": [label["Subtopic"].transform([subtopic])[0]],
+    "Subtopic": [label["Subtopic"].transform([subtopic])[0]],
     })
     
     # Bouton de prédiction
