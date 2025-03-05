@@ -59,7 +59,7 @@ elif menu=="Prédiction":
     # Champs de saisie
     student_country = st.selectbox("Pays de l'étudiant", label["Student Country"].classes_)
     question_id = st.number_input("ID de la question", min_value=0, step=1)
-    question_level = st.selectbox("Niveau de la question", labels["Question Level"].classes_)
+    question_level = st.selectbox("Niveau de la question", label["Question Level"].classes_)
     topic = st.selectbox("Sujet", label["Topic"].classes_)
     subtopic = st.selectbox("Sous-sujet", label["Subtopic"].classes_)
     
