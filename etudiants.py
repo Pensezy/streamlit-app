@@ -7,7 +7,7 @@ model = joblib.load("modele_entraine.pkl")
 label = joblib.load("label.pkl")
 
 # Titre de l'application
-st.title("Prédiction de Réponse d'un Étudiant")
+st.title("Prédiction de Réponse d'un Étudiant par Pensezy")
 
 # Interface utilisateur
 st.write("Remplissez les informations suivantes pour prédire si l'étudiant répondra correctement à la question.")
