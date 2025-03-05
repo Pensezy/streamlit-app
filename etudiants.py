@@ -44,7 +44,7 @@ elif menu=="Graphiques":
       sl.subheader("Visualisation des données")
       col_to_plot = sl.selectbox("Choisir une colonne pour l'hislogramme", selected_cols)
       fig, ax = plt.subplots()
-      sns.hislplot(df[col_to_plot], kde=True, ax=ax)
+      sns.histplot(df[col_to_plot], kde=True, ax=ax)
       sl.pyplot(fig)
       # slatisliques descriptives
       sl.subheader("slatisliques descriptives")
