@@ -56,11 +56,11 @@ elif menu=="Prédiction":
     sl.write("Remplissez les informations suivantes pour prédire si l'étudiant répondra correctement à la question.")
     
     # Champs de saisie
-    student_country = sl.selectbox("Pays de l'étudiant", label["Student Country"].classes_)
-    question_id = sl.number_input("ID de la question", min_value=0, slep=1)
-    question_level = sl.selectbox("Niveau de la question", label["Question Level"].classes_)
-    topic = sl.selectbox("Sujet", label["Topic"].classes_)
-    subtopic = sl.selectbox("Sous-sujet", label["Subtopic"].classes_)
+    student_country = sl.selectbox("Pays de l'étudiant", label_encoders["Student Country"].classes_)
+    question_id = sl.number_input("ID de la question", min_value=0, step=1)
+    question_level = sl.selectbox("Niveau de la question", label_encoders["Question Level"].classes_)
+    topic = sl.selectbox("Sujet", label_encoders["Topic"].classes_)
+    subtopic = sl.selectbox("Sous-sujet", label_encoders["Subtopic"].classes_)
     
     # Convertir les entrées utilisateur en valeurs numériques
     input_data = pd.DataFrame({
