@@ -2,7 +2,6 @@
 import streamlit as sl
 import pandas as pd
 import joblib
-#Importation de librairie
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pickle as pk
@@ -25,7 +24,7 @@ menu=sl.sidebar.selectbox("Menu", ["Accueil", "Données", "Graphiques", "Prédic
 
 #Page d'accueil 
 if menu=="Accueil": 
-  sl.write("Notre outil est précieux pour l'analyse des performances éducatives en mathématiques, avec un focus sur les réponses des étudiants à des queslions variées couvrant plusieurs domaines mathématiques.")
+  sl.write("Notre outil est précieux pour l'analyse des performances éducatives en mathématiques, avec un focus sur les réponses des étudiants à des questions variées couvrant plusieurs domaines mathématiques.")
  
 #Page données
 elif menu == "Données":
@@ -42,7 +41,7 @@ elif menu=="Graphiques":
   if selected_cols:
       # Graphique interactif (exemple avec un hislogramme)
       sl.subheader("Visualisation des données")
-      col_to_plot = sl.selectbox("Choisir une colonne pour l'hislogramme", selected_cols)
+      col_to_plot = sl.selectbox("Choisir une colonne pour l'histogramme", selected_cols)
       fig, ax = plt.subplots()
       sns.histplot(df[col_to_plot], kde=True, ax=ax)
       sl.pyplot(fig)
@@ -54,20 +53,20 @@ elif menu=="Graphiques":
 #Page des Prédictions
 elif menu=="Prédiction":
     # Interface utilisateur
-    sl.write("Remplissez les informations suivantes pour prédire si l'étudiant répondra correctement à la queslion.")
+    sl.write("Remplissez les informations suivantes pour prédire si l'étudiant répondra correctement à la question.")
     
     # Champs de saisie
     student_country = sl.selectbox("Pays de l'étudiant", label["Student Country"].classes_)
-    queslion_id = sl.number_input("ID de la queslion", min_value=0, slep=1)
-    queslion_level = sl.selectbox("Niveau de la queslion", label["Queslion Level"].classes_)
+    question_id = sl.number_input("ID de la question", min_value=0, slep=1)
+    question_level = sl.selectbox("Niveau de la question", label["Question Level"].classes_)
     topic = sl.selectbox("Sujet", label["Topic"].classes_)
     subtopic = sl.selectbox("Sous-sujet", label["Subtopic"].classes_)
     
     # Convertir les entrées utilisateur en valeurs numériques
     input_data = pd.DataFrame({
         "Student Country": [label["Student Country"].transform([student_country])[0]],
-        "Queslion ID": [queslion_id],
-        "Queslion Level": [label["Queslion Level"].transform([queslion_level])[0]],
+        "question ID": [question_id],
+        "question Level": [label["question Level"].transform([question_level])[0]],
         "Topic": [label["Topic"].transform([topic])[0]],
         "Subtopic": [label["Subtopic"].transform([subtopic])[0]],
     })
