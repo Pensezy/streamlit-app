@@ -6,15 +6,6 @@ import joblib
 model = joblib.load("modele_entraine.pkl")
 label = joblib.load("label.pkl")
 
-from sklearn.ensemble import RandomForestClassifier
-# Charger le modèle pour vérifier qu'il fonctionne
-try:
-    model = joblib.load("random_forest_model.pkl")
-    st.write("✅ Modèle chargé avec succès !")
-except Exception as e:
-    st.write("❌ Erreur lors du chargement du modèle :", e)
-
-
 # Titre de l'application
 st.title("Prédiction de Réponse d'un Étudiant par Pensezy")
 
