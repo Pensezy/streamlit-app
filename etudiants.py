@@ -9,11 +9,11 @@ from sklearn.preprocessing import LabelEncoder
 # Charger le modèle et les encodeurs
 with open('modele_entraine.pkl', 'rb') as fichier:
   modele=pk.load(fichier)
-with open('label.pkl', 'rb') as fichier:
-  label=pk.load(fichier)
+  
   
 #Chargement des données
 df = pd.read_excel('MathE dataset.xlsx')
+label=pk.load(fichier)
 
 
 # Titre de l'application
