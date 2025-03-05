@@ -1,9 +1,9 @@
 #Importation de librairie
-import joblib
-import pandas as pd
-import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
+import joblib #charger le modèle
+import pandas as pd #charger le jeu de donnée
+import streamlit as st #coder l'application 
+import matplotlib.pyplot as plt #création de visualistion graphique
+import seaborn as sns #concevoir des histogramme
 
 # Charger le modèle et les encodeurs
 with open('modele_entraine.pkl', 'rb') as fichier:
@@ -57,7 +57,7 @@ elif menu=="Prédiction":
     question_id = st.number_input("ID de la question", min_value=0, step=1)
     question_level = st.selectbox("Niveau de la question", label["Question Level"].classes_)
     topic = st.selectbox("Sujet", label["Topic"].classes_)
-    subtopic = st.selectbox("Sous-sujet", label["Subtopic"].classes_)
+    #subtopic = st.selectbox("Sous-sujet", label["Subtopic"].classes_)
     
     # Convertir les entrées utilisateur en valeurs numériques
     input_data = pd.DataFrame({
@@ -65,7 +65,7 @@ elif menu=="Prédiction":
     "Question ID": [question_id],
     "Question Level": [label["Question Level"].transform([question_level])[0]],
     "Topic": [label["Topic"].transform([topic])[0]],
-    "Subtopic": [label["Subtopic"].transform([subtopic])[0]],
+    #"Subtopic": [label["Subtopic"].transform([subtopic])[0]],
     })
     
     # Bouton de prédiction
